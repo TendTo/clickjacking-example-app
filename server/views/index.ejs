@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Vulnerable Movie Center</title>
+    <style>
+      button {
+        background-color: #04aa6d;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .logout-btn {
+        display: inline;
+        float: right;
+        width: fit-content;
+        background-color: white;
+        color: black;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="col-md">
+      <div
+        style="
+          display: flex;
+          align-items: stretch;
+          justify-content: space-between;
+        "
+      >
+        <h2 class="mb-0" style="margin-top: 20px; margin-bottom: 10px">
+          LM-18 Informatica regolamento 2021/2022
+        </h2>
+        <button class="logout-btn" onclick="window.location.href = '/logout';">
+          Logout
+        </button>
+      </div>
+      <br />
+      <table class="table">
+        <tbody>
+          <tr class="hidden"></tr>
+          <tr class="thead-light">
+            <th style="background-color: #e3f2fd" scope="row">Matricola</th>
+            <td>1000100010</td>
+          </tr>
+          <tr class="thead-light">
+            <th style="background-color: #e3f2fd" scope="row">
+              Immatricolazione
+            </th>
+            <td>2021/2022</td>
+          </tr>
+          <tr class="thead-light">
+            <th style="background-color: #e3f2fd" scope="row">
+              Corso di studi
+            </th>
+            <td>LM-18 Informatica regolamento 2021/2022</td>
+          </tr>
+          <tr class="thead-light">
+            <th style="background-color: #e3f2fd" scope="row">
+              Ultima iscrizione
+            </th>
+            <td>2022/2023</td>
+          </tr>
+          <tr class="thead-light">
+            <th style="background-color: #e3f2fd" scope="row">Status</th>
+            <td>Carriera attiva</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="mb-0" style="margin-top: 20px; margin-bottom: 15px">
+        Dettaglio
+      </h2>
+      <table class="table table-striped" style="padding: 15px; width: 100%">
+        <thead class="bg-warning">
+          <tr>
+            <th class="text-center smartedu_hiddenMobile" style="width: 5%">
+              Tipo
+            </th>
+            <th style="width: 50%">Esame</th>
+            <th class="smartedu_hiddenMobile ; text-center">Esito</th>
+            <th class="smartedu_hiddenMobile ; text-center">Data</th>
+            <th class="text-center" style="width: 5%">Crediti</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="smartedu_hiddenMobile text-center">S</td>
+            <td class="smartedu_hiddenMobile">
+              COMPUTER SECURITY E LABORATORIO<br />
+              <span class="text-muted">9 cfu in B - INF/01</span>
+            </td>
+            <td class="smartedu_hiddenMobile text-center">30/30 lode</td>
+            <td class="smartedu_hiddenMobile ; text-center">01/01/2022</td>
+            <td class="text-center ; smartedu_hiddenMobile">9</td>
+          </tr>
+          <tr>
+            <td class="smartedu_hiddenMobile text-center">S</td>
+            <td class="smartedu_hiddenMobile">
+              VULNERABILITY ASSESSMENT E PENETRATION TESTING (VAPT)<br />
+              <span class="text-muted">6 cfu in B - INF/01</span>
+            </td>
+            <td class="smartedu_hiddenMobile text-center">30/30 lode</td>
+            <td class="smartedu_hiddenMobile ; text-center">01/04/2022</td>
+            <td class="text-center ; smartedu_hiddenMobile">6</td>
+          </tr>
+        </tbody>
+      </table>
+      <% if (user.accepted === undefined) { %>
+      <form action="/accept" method="post">
+        <button type="submit" style="background-color: green">Accetta</button>
+      </form>
+      <form action="/reject" method="post">
+        <button type="submit" style="background-color: red">Rifiuta</button>
+      </form>
+      <% } %> <% if (user.accepted) { %>
+      <h2 class="mb-0" style="margin-top: 20px">Accettato</h2>
+      <% } %> <% if (user.accepted === false) { %>
+      <h2 class="mb-0" style="margin-top: 20px">Rifiutato</h2>
+      <% } %>
+    </div>
+  </body>
+</html>
